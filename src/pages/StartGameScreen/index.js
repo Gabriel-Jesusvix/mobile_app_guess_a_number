@@ -6,9 +6,9 @@ import styles from "./styles";
 const StartGameScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Iniciar um novo </Text>
+      <Text style={styles.title}>Iniciar um novo!</Text>
       <View style={styles.inputContainer}>
-        <Text>selecione um numero </Text>
+        <Text>Selecione um numero </Text>
         <TextInput />
         <View style={styles.buttonContainer}>
           <Button title="Novo" onPress={() => {}} />
