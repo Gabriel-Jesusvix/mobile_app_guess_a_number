@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
   button: {
     width: 100,
   },
+  input: {
+    width: 50,
+    textAlign: "center",
+  },
 });
 
 export default styles;
