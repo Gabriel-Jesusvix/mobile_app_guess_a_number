@@ -1,5 +1,8 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Button } from "react-native";
+
+import NumberContainer from "../../components/NumberContainer";
+import Card from "../../components/Card";
 import styles from "./styles";
 
 const generateRandomBetween = (min, max, exclude) => {
@@ -18,7 +21,12 @@ const GameScreen = ({ userChoice }) => {
   );
   return (
     <View style={styles.container}>
-      <Text>GameScreen</Text>
+      <Text>Adivinhação do oponente </Text>
+      <NumberContainer>{currentGuess}</NumberContainer>
+      <Card style={styles.buttonContainer}>
+        <Button title="DIMINUIR" onPress={() => {}} />
+        <Button title="AUMENTAR" onPress={() => {}} />
+      </Card>
     </View>
   );
 };
