@@ -2,12 +2,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import styles from "./styles";
 
-const MealDetailsScreen = () => {
+const GameScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>MealDetailsScreen</Text>
+      <Text>GameScreen</Text>
     </View>
   );
 };
 
-export default MealDetailsScreen;
+export default GameScreen;
