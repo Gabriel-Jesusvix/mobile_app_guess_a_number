@@ -28,6 +28,10 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
   },
+  summaryContainer: {
+    marginTop: 10,
+    alignItems: "center",
+  },
 });
 
 export default styles;

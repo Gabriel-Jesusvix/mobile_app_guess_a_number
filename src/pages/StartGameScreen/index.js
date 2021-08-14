@@ -10,6 +10,7 @@ import {
 
 import Card from "../../components/Card";
 import Input from "../../components/Input";
+import NumberContainer from "../../components/NumberContainer";
 
 import Colors from "../../constants/color";
 import styles from "./styles";
@@ -49,10 +50,17 @@ const StartGameScreen = () => {
     setConfirmed(true);
     setEnteredValue("");
     setSelectedNumber(chosenNumber);
+    Keyboard.dismiss();
   };
 
   if (confirmed) {
-    confirmedOutput = <Text>Chosen Number: {selectedNumber}</Text>;
+    confirmedOutput = (
+      <Card style={styles.summaryContainer}>
+        <Text>Você Selecionou:</Text>
+        <NumberContainer>{selectedNumber}</NumberContainer>
+        <Button title="COMEÇAR JOGO" />
+      </Card>
+    );
   }
 
   return (
