@@ -3,6 +3,7 @@ import { View, Text, Button, Alert } from "react-native";
 
 import NumberContainer from "../../components/NumberContainer";
 import Card from "../../components/Card";
+
 import styles from "./styles";
 
 const generateRandomBetween = (min, max, exclude) => {
@@ -15,17 +16,19 @@ const generateRandomBetween = (min, max, exclude) => {
     return randomNumber;
   }
 };
-const GameScreen = ({ userChoice }) => {
+const GameScreen = ({ userChoice, onGameOver }) => {
   const [currentGuess, setCurrentGuess] = useState(
     generateRandomBetween(1, 100, userChoice)
   );
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
+  const [rounds, setRounds] = useState(0);
 
   useEffect(() => {
     if (currentGuess === userChoice) {
+      onGameOver(rounds);
     }
-  }, []);
+  }, [currentGuess, userChoice, onGameOver]);
 
   const nextGuessHandler = (direction) => {
     if (
@@ -51,6 +54,7 @@ const GameScreen = ({ userChoice }) => {
       currentGuess
     );
     setCurrentGuess(nextNubmer);
+    setRounds((rounds) => rounds + 1);
   };
 
   return (
