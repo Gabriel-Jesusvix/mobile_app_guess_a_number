@@ -12,9 +12,10 @@ export default function App() {
     setUserNumber(selectedNumber);
   };
 
-  let content = <StartGameScreen />;
+  let content = <StartGameScreen onStartGame={startGameHandler} />;
+
   if (userNumber) {
-    <GameScreen />;
+    content = <GameScreen userChoice={userNumber} />;
   }
 
   return (
