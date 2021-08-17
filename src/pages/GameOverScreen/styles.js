@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  newGame: {
+    marginTop: 15,
+  },
 });
 
 export default styles;

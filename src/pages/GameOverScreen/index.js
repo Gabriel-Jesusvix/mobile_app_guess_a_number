@@ -18,7 +18,9 @@ const GameOverScreen = ({ roundsNumber, numberUser, onRestart }) => {
       </View>
       <Text>Número de rodadas: {roundsNumber}</Text>
       <Text>Número era: {numberUser}</Text>
-      <ButtonComponent onPress={onRestart}>NOVO JOGO</ButtonComponent>
+      <View style={styles.newGame}>
+        <ButtonComponent onPress={onRestart}>NOVO JOGO</ButtonComponent>
+      </View>
     </View>
   );
 };

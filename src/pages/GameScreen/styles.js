@@ -13,6 +13,18 @@ const styles = StyleSheet.create({
     width: 400,
     maxWidth: "90%",
   },
+  listItem: {
+    width: "80%",
+  },
+  pastListContainer: {
+    borderColor: "#ccc",
+    borderWidth: 1,
+    padding: 15,
+    marginVertical: 10,
+    backgroundColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
 });
 
 export default styles;
