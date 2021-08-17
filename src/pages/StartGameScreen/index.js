@@ -71,7 +71,7 @@ const StartGameScreen = ({ onStartGame }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Iniciar um novo jogo!</Text>
         <Card style={styles.inputContainer}>
-          <Text>Selecione um numero </Text>
+          <Text style={styles.selectedNumberText}>Selecione um numero </Text>
           <Input
             style={styles.input}
             blurOnSubmit
