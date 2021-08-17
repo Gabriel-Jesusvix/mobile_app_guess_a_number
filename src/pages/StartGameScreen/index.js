@@ -11,6 +11,7 @@ import {
 import Card from "../../components/Card";
 import Input from "../../components/Input";
 import NumberContainer from "../../components/NumberContainer";
+import ButtonComponent from "../../components/ButtonComponent";
 
 import Colors from "../../constants/color";
 import styles from "./styles";
@@ -58,10 +59,9 @@ const StartGameScreen = ({ onStartGame }) => {
       <Card style={styles.summaryContainer}>
         <Text>Você Selecionou:</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button
-          title="COMEÇAR JOGO"
-          onPress={() => onStartGame(selectedNumber)}
-        />
+        <ButtonComponent onPress={() => onStartGame(selectedNumber)}>
+          COMEÇAR JOGO
+        </ButtonComponent>
       </Card>
     );
   }
@@ -71,7 +71,7 @@ const StartGameScreen = ({ onStartGame }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Iniciar um novo jogo!</Text>
         <Card style={styles.inputContainer}>
-          <Text>Selecione um numero </Text>
+          <Text style={styles.selectedNumberText}>Selecione um numero </Text>
           <Input
             style={styles.input}
             blurOnSubmit

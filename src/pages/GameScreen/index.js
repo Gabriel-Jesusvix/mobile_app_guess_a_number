@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
-import { View, Text, Button, Alert } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Alert, FlatList, ScrollView, Text, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-import NumberContainer from "../../components/NumberContainer";
+import ButtonComponent from "../../components/ButtonComponent";
 import Card from "../../components/Card";
+import NumberContainer from "../../components/NumberContainer";
 
 import styles from "./styles";
 
@@ -17,16 +19,16 @@ const generateRandomBetween = (min, max, exclude) => {
   }
 };
 const GameScreen = ({ userChoice, onGameOver }) => {
-  const [currentGuess, setCurrentGuess] = useState(
-    generateRandomBetween(1, 100, userChoice)
-  );
+  const initialGuess = generateRandomBetween(1, 100, userChoice);
+  const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  const [pastGuess, setPastGuess] = useState([initialGuess]);
+
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
-  const [rounds, setRounds] = useState(0);
 
   useEffect(() => {
     if (currentGuess === userChoice) {
-      onGameOver(rounds);
+      onGameOver(pastGuess.length);
     }
   }, [currentGuess, userChoice, onGameOver]);
 
@@ -46,7 +48,7 @@ const GameScreen = ({ userChoice, onGameOver }) => {
     if (direction === "lower") {
       currentHigh.current = currentGuess;
     } else {
-      currentLow.current = currentGuess;
+      currentLow.current = currentGuess + 1;
     }
     const nextNubmer = generateRandomBetween(
       currentLow.current,
@@ -54,7 +56,8 @@ const GameScreen = ({ userChoice, onGameOver }) => {
       currentGuess
     );
     setCurrentGuess(nextNubmer);
-    setRounds((rounds) => rounds + 1);
+    // setRounds((rounds) => rounds + 1);
+    setPastGuess((pastGuess) => [nextNubmer, ...pastGuess]);
   };
 
   return (
@@ -62,15 +65,30 @@ const GameScreen = ({ userChoice, onGameOver }) => {
       <Text>Adivinhação do oponente </Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <Button
-          title="DIMINUIR"
-          onPress={nextGuessHandler.bind(this, "lower")}
-        />
-        <Button
-          title="AUMENTAR"
-          onPress={nextGuessHandler.bind(this, "greater")}
-        />
+        <ButtonComponent onPress={nextGuessHandler.bind(this, "lower")}>
+          <Ionicons name="md-remove" size={24} color="white" />
+        </ButtonComponent>
+        <ButtonComponent onPress={nextGuessHandler.bind(this, "greater")}>
+          <Ionicons name="md-add" size={24} color="white" />
+        </ButtonComponent>
       </Card>
+      <FlatList
+        keyExtractor={(item) => item}
+        showsVerticalScrollIndicator={false}
+        style={styles.listItem}
+        data={pastGuess}
+        renderItem={({ index }) => (
+          <View style={styles.pastListContainer}>
+            <Text>#{pastGuess.length - index}</Text>
+            <Text>{currentGuess}</Text>
+          </View>
+        )}
+      />
+      {/* <ScrollView>
+        {pastGuess.map((guess) => (
+          
+        ))}
+      </ScrollView> */}
     </View>
   );
 };
