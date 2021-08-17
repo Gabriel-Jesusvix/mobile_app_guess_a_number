@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { View, Text, Button, Alert } from "react-native";
 
 import NumberContainer from "../../components/NumberContainer";
+import ButtonComponent from "../../components/ButtonComponent";
+
 import Card from "../../components/Card";
 
 import styles from "./styles";
@@ -62,14 +64,12 @@ const GameScreen = ({ userChoice, onGameOver }) => {
       <Text>Adivinhação do oponente </Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <Button
-          title="DIMINUIR"
-          onPress={nextGuessHandler.bind(this, "lower")}
-        />
-        <Button
-          title="AUMENTAR"
-          onPress={nextGuessHandler.bind(this, "greater")}
-        />
+        <ButtonComponent onPress={nextGuessHandler.bind(this, "lower")}>
+          DIMINUIR
+        </ButtonComponent>
+        <ButtonComponent onPress={nextGuessHandler.bind(this, "greater")}>
+          AUMENTAR
+        </ButtonComponent>
       </Card>
     </View>
   );

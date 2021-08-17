@@ -11,6 +11,7 @@ import {
 import Card from "../../components/Card";
 import Input from "../../components/Input";
 import NumberContainer from "../../components/NumberContainer";
+import ButtonComponent from "../../components/ButtonComponent";
 
 import Colors from "../../constants/color";
 import styles from "./styles";
@@ -58,10 +59,9 @@ const StartGameScreen = ({ onStartGame }) => {
       <Card style={styles.summaryContainer}>
         <Text>Você Selecionou:</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button
-          title="COMEÇAR JOGO"
-          onPress={() => onStartGame(selectedNumber)}
-        />
+        <ButtonComponent onPress={() => onStartGame(selectedNumber)}>
+          COMEÇAR JOGO
+        </ButtonComponent>
       </Card>
     );
   }
