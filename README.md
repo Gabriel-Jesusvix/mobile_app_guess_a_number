@@ -1,4 +1,5 @@
 
+
 # Guess a Number 
 
 The developed app is aimed at relaxation and entertainment. Therefore, important points were addressed in this project, as follows: 
@@ -25,7 +26,12 @@ The developed app is aimed at relaxation and entertainment. Therefore, important
   
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot_1629228589](https://user-images.githubusercontent.com/62946928/129946145-67db6019-cf87-4f54-9e43-3b8694c8164c.png)
+![Screenshot_1629228600](https://user-images.githubusercontent.com/62946928/129946148-0397ddec-3ab2-4452-865d-89819b69d252.png)
+![Screenshot_1629228603](https://user-images.githubusercontent.com/62946928/129946149-1bf9b1f1-baed-4b1e-a12b-6adc8d346bec.png)
+![Screenshot_1629228607](https://user-images.githubusercontent.com/62946928/129946150-5d0e0f17-7b2e-4c14-9294-cd422946c6d1.png)
+![Screenshot_1629228627](https://user-images.githubusercontent.com/62946928/129946152-c4466698-5a1a-41bc-9b9b-81cb0d8c681c.png)
+![Screenshot_1629228633](https://user-images.githubusercontent.com/62946928/129946155-c0e25cf8-2c63-4611-a408-46388133e21c.png)
 
   
 ## Appendix
